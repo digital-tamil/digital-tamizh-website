@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import DatasetDetails from "../../components/pages/HuggingFaceDataset";
+import { Content } from "../../components/Markdown/HuggingFace.md";
+---
+
+<Layout>
+  <div
+    class="min-h-screen bg-[#080808] text-[#e0e0e0] font-sans selection:bg-orange-500/30"
+  >
+    <DatasetDetails client:load />
+    <div
+      class="bg-white/5 border border-white/10 rounded-2xl p-10 md:p-16 backdrop-blur-md relative overflow-hidden group"
+    >
+      <div
+        class="inset-0 bg-[radial-gradient(ellipse_at_center,rgba(249,115,22,0.05),transparent_70%)] transition-all duration-700"
+      >
+        <div
+          class="inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none text-center"
+        >
+          <Content />
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
