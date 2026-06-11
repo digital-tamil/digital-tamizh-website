@@ -715,8 +715,8 @@ export default function TamilOCR() {
 								<div className="w-3 h-3 rounded-full bg-green-500/80" />
 							</div>
 							<p className="ml-4 text-xs font-mono text-neutral-500 flex items-center gap-2">
-								<Terminal className="w-3 h-3" /> cargo run --release -- --pdf
-								./siddhar.pdf
+								<Terminal className="w-3 h-3" /> cargo run --release --
+								--pdf-path ./siddhar.pdf
 							</p>
 						</div>
 						<div className="p-6 font-mono text-sm flex-1 flex flex-col gap-2 relative h-[300px] overflow-hidden">
