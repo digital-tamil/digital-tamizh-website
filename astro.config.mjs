@@ -7,6 +7,7 @@ import tailwindcss from "@tailwindcss/vite";
 import markdoc from "@astrojs/markdoc";
 
 import sitemap from "@astrojs/sitemap";
+import { satteri } from "@astrojs/markdown-satteri";
 
 // https://astro.build/config
 export default defineConfig({
@@ -29,5 +30,10 @@ export default defineConfig({
 	},
 	vite: {
 		plugins: [tailwindcss()],
+	},
+	markdown: {
+		processor: satteri({
+			features: { directive: true },
+		}),
 	},
 });

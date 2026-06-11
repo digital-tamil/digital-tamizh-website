@@ -187,10 +187,7 @@ export default function Home() {
 							</motion.div>
 						</a>
 
-						<a
-							href="https://github.com/digital-tamil/tamil-simple-ocr"
-							className="group"
-						>
+						<a href="/tamil-simple-ocr" className="group">
 							<motion.div
 								initial={{ opacity: 0, y: 30 }}
 								whileInView={{ opacity: 1, y: 0 }}
