@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders, svgoOptimizer } from "astro/config";
 
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
@@ -27,6 +27,7 @@ export default defineConfig({
 	},
 	prefetch: {
 		prefetchAll: true,
+		defaultStrategy: "viewport",
 	},
 	vite: {
 		plugins: [tailwindcss()],
@@ -35,5 +36,14 @@ export default defineConfig({
 		processor: satteri({
 			features: { directive: true },
 		}),
+	},
+	experimental: {
+		clientPrerender: true,
+		svgOptimizer: svgoOptimizer(),
+	},
+	redirects: {
+		"/instagram": "https://www.instagram.com/tamil.ai.llm",
+		"/insta": "https://www.instagram.com/tamil.ai.llm",
+		"/youtube": "https://www.youtube.com/@tamizh-ai",
 	},
 });
