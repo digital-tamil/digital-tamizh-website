@@ -1,11 +1,5 @@
-import React, { useState, useEffect, useRef, Activity } from "react";
-import {
-	motion,
-	AnimatePresence,
-	useScroll,
-	useTransform,
-	useSpring,
-} from "motion/react";
+import { useState, useEffect, useRef, Activity } from "react";
+import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
 import {
 	Terminal,
 	Cpu,
