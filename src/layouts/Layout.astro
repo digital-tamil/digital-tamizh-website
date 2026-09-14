@@ -1,6 +1,118 @@
 ---
 import "../styles/global.css";
 import Navbar from "./Navbar";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: string;
+}
+
+const siteUrl = "https://digital-tamizh.web.app";
+const {
+  title = "Digital Tamizh | High-Performance Tamil OCR, NLP & Classical AI Tools in Rust",
+  description = "Open-source AI and Rust ecosystem digitizing classical Tamil, Siddhar literature, and palm-leaf manuscripts. Features 97.3% accurate Tamil OCR and LLM fine-tuning corpora.",
+  image = `${siteUrl}/Digital_Tamizh_OgImg.png`,
+  canonicalURL = new URL(Astro.url.pathname, siteUrl).href,
+  type = "website",
+} = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Digital Tamizh",
+      alternateName: ["Digital Tamil", "டிஜிட்டல் தமிழ்"],
+      url: siteUrl,
+      logo: `${siteUrl}/Digital_Tamizh_OgImg.png`,
+      sameAs: [
+        "https://github.com/digital-tamil",
+        "https://www.instagram.com/tamil.ai.llm",
+        "https://www.youtube.com/@tamizh-ai",
+      ],
+      founder: {
+        "@type": "Person",
+        "@id": "https://sanjaiyan-dev.github.io/#person",
+        name: "Sanjaiyan Parthipan",
+        url: "https://github.com/sanjaiyan-dev",
+        birthDate: "2006-04-12",
+        homeLocation: {
+          "@type": "Place",
+          name: "Point Pedro, Sri Lanka",
+        },
+        knowsLanguage: ["ta", "en"],
+        sameAs: [
+          "https://www.npmjs.com/~sanjaiyan",
+          "https://www.instagram.com/sanjaiyan_dev",
+          "https://huggingface.co/Sanjaiyan",
+        ],
+      },
+    },
+    {
+      "@type": "Dataset",
+      "@id": `${siteUrl}/#dataset-tamil-heritage-corpus`,
+      name: "Tamil Digital Heritage Corpus",
+      description:
+        "A curated dataset of ancient Tamil literature, palm-leaf manuscripts, and Siddhar texts digitized using high-performance Rust OCR for fine-tuning Tamil Large Language Models (LLMs).",
+      url: "https://huggingface.co/datasets/Sanjaiyan/Tamil-Digital-Heritage-Corpus",
+      sameAs:
+        "https://huggingface.co/datasets/Sanjaiyan/Tamil-Digital-Heritage-Corpus",
+      inLanguage: "ta",
+      isAccessibleForFree: true,
+      creator: {
+        "@id": `https://sanjaiyan-dev.github.io/#person`,
+      },
+      publisher: {
+        "@id": `${siteUrl}/#organization`,
+      },
+      keywords: [
+        "Tamil Dataset",
+        "Classical Tamil",
+        "Siddhar Literature",
+        "Tamil Palm-leaf Manuscripts",
+        "Tamil LLM Pre-training",
+        "Tamil NLP Corpus",
+        "Optical Character Recognition",
+      ],
+      distribution: [
+        {
+          "@type": "DataDownload",
+          encodingFormat: "text/plain",
+          contentUrl:
+            "https://huggingface.co/datasets/Sanjaiyan/Tamil-Digital-Heritage-Corpus",
+        },
+      ],
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${siteUrl}/#software`,
+      name: "tamil-simple-ocr",
+      operatingSystem: "Cross-platform (Linux, Windows, macOS)",
+      applicationCategory: "DeveloperApplication",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      description:
+        "Blazingly fast, multi-core Tamil OCR engine written in Rust with Edge-AI character validation for classical manuscripts.",
+      softwareRequirements: "Rust, Ollama",
+      url: "https://github.com/digital-tamil/tamil-simple-ocr",
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Digital Tamizh",
+      publisher: { "@id": `${siteUrl}/#organization` },
+      inLanguage: ["en", "ta"],
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -8,41 +120,68 @@ import Navbar from "./Navbar";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta
-      name="description"
-      content="Crafting tools 💻 that make the Tamil language 📜 as sweet and accessible as nectar 🍯 in the digital landscape 💫"
-    />
 
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Digital Tamil" />
-    <meta property="og:title" content="தமிழ் | Digital Tamil" />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
     <meta
-      name="og:description"
-      content="Crafting tools 💻 that make the Tamil language 📜 as sweet and accessible as nectar 🍯 in the digital landscape 💫"
+      name="keywords"
+      content="Tamil OCR, Tamil NLP, Rust OCR, Siddhar manuscripts, Thiruppugazh Sandhi, Tamil LLM, Tamil AI, Point Pedro, Open Source Tamil, digitize Tamil literature"
     />
+    <meta name="author" content="Sanjaiyan Parthipan" />
+    <link rel="canonical" href={canonicalURL} />
     <meta
-      name="og:image"
-      content="https://digital-tamizh.web.app/Digital_Tamizh_OgImg.png"
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="theme-color" content="#ff6900" />
-    <title>தமிழ் | Digital Tamil</title>
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Digital Tamizh" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta
+      property="og:image:alt"
+      content="Digital Tamizh - Tamil AI and Classical Digitization Engine"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ta_LK" />
+    <meta property="og:locale:alternate" content="ta_IN" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta
+      name="twitter:image:alt"
+      content="Digital Tamizh - Tamil AI and Classical Digitization Engine"
+    />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <meta
+      name="google-site-verification"
+      content="HromSfitbXiX1KUY1xF172ucTOu5tMvhsgZFGfJz0Fs"
+    />
   </head>
-  <body>
+  <body
+    class="bg-[#0b0c10] text-gray-100 selection:bg-[#ff6900] selection:text-white"
+  >
     <Navbar client:load />
     <slot />
   </body>
 </html>
 
-<style>
+<style is:global>
   html,
   body {
     margin: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     @apply scroll-smooth antialiased;
   }
 </style>
