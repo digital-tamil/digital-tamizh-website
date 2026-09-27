@@ -14,9 +14,7 @@ export default defineConfig({
 	site: "https://digital-tamizh.web.app",
 	integrations: [
 		react({
-			babel: {
-				plugins: ["babel-plugin-react-compiler"],
-			},
+			compiler: true,
 		}),
 		markdoc(),
 		sitemap(),

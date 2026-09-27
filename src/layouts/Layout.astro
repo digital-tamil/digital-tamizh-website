@@ -14,7 +14,7 @@ const siteUrl = "https://digital-tamizh.web.app";
 const {
   title = "Digital Tamizh | High-Performance Tamil OCR, NLP & Classical AI Tools in Rust",
   description = "Open-source AI and Rust ecosystem digitizing classical Tamil, Siddhar literature, and palm-leaf manuscripts. Features 97.3% accurate Tamil OCR and LLM fine-tuning corpora.",
-  image = `${siteUrl}/Digital_Tamizh_OgImg.png`,
+  image = `${siteUrl}/Digital_Tamizh_OgImg.jpg`,
   canonicalURL = new URL(Astro.url.pathname, siteUrl).href,
   type = "website",
 } = Astro.props;
@@ -61,6 +61,7 @@ const jsonLd = {
       url: "https://huggingface.co/datasets/Sanjaiyan/Tamil-Digital-Heritage-Corpus",
       sameAs:
         "https://huggingface.co/datasets/Sanjaiyan/Tamil-Digital-Heritage-Corpus",
+        license: "https://www.apache.org/licenses/LICENSE-2.0",
       inLanguage: "ta",
       isAccessibleForFree: true,
       creator: {
