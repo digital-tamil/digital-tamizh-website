@@ -1,4 +1,3 @@
-
 import {
 	motion,
 	useScroll,
@@ -73,7 +72,7 @@ export default function Navigation() {
 						className="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 rounded-full"
 						aria-label="Digital Tamizh Home"
 					>
-						<div className="relative w-8 h-8 rounded-full bg-linear-to-tr from-orange-600 via-amber-500 to-yellow-400 p-[1px] shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow">
+						<div className="relative w-8 h-8 rounded-full bg-linear-to-tr from-orange-600 via-amber-500 to-yellow-400 p-px shadow-lg shadow-orange-500/20 group-hover:shadow-orange-500/40 transition-shadow">
 							<div className="w-full h-full bg-[#08080d] rounded-full flex items-center justify-center">
 								<span className="text-amber-400 font-bold text-sm select-none group-hover:scale-110 transition-transform">
 									அ
@@ -92,7 +91,7 @@ export default function Navigation() {
 					</a>
 
 					{/* Desktop Navigation Links */}
-					<div className="hidden md:flex items-center gap-1 bg-white/[0.03] p-1 rounded-full border border-white/[0.06]">
+					<div className="hidden md:flex items-center gap-1 bg-white/3 p-1 rounded-full border border-white/6">
 						{NAV_LINKS.map((item) => {
 							const isActive = currentPath === item.href;
 							return (
@@ -183,7 +182,7 @@ export default function Navigation() {
 										<div className="flex items-center gap-2">
 											<span>{item.name}</span>
 											{item.badge && (
-												<span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/[0.08] text-neutral-400">
+												<span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/8 text-neutral-400">
 													{item.badge}
 												</span>
 											)}
