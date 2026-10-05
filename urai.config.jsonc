@@ -21,7 +21,7 @@
 	"tailwind_mode": "summarize",
 
 	// Character length threshold for Tailwind pruning (default: 96 characters)
-	"tailwind_threshold": 96,
+	"tailwind_threshold": 12,
 
 	// Summarize function block bodies using local Ollama or fallback to JSDoc comments
 	"summarize_functions": true,
