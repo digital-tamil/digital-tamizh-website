@@ -172,8 +172,11 @@ const jsonLd = {
   <body
     class="bg-[#0b0c10] text-gray-100 selection:bg-[#ff6900] selection:text-white"
   >
-    <Navbar client:load />
+    <Navbar client:idle />
+    <main>
     <slot />
+
+    </main>
   </body>
 </html>
 
