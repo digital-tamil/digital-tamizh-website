@@ -6,6 +6,7 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  imageAlt?:string;
   canonicalURL?: string;
   type?: string;
 }
@@ -15,6 +16,7 @@ const {
   title = "Digital Tamizh | High-Performance Tamil OCR, NLP & Classical AI Tools in Rust",
   description = "Open-source AI and Rust ecosystem digitizing classical Tamil, Siddhar literature, and palm-leaf manuscripts. Features 97.3% accurate Tamil OCR and LLM fine-tuning corpora.",
   image = `${siteUrl}/Digital_Tamizh_OgImg.jpg`,
+  imageAlt = "Digital Tamizh - Tamil AI and Classical Digitization Engine",
   canonicalURL = new URL(Astro.url.pathname, siteUrl).href,
   type = "website",
 } = Astro.props;
@@ -64,6 +66,10 @@ const jsonLd = {
         license: "https://www.apache.org/licenses/LICENSE-2.0",
       inLanguage: "ta",
       isAccessibleForFree: true,
+      hasPart: {
+        "@id": `${siteUrl}/#software-aril`,
+      },
+      measurementTechnique: "Extracted and normalized via Aril Aho-Corasick engine and Tamil Simple OCR",
       creator: {
         "@id": `https://sanjaiyan-dev.github.io/#person`,
       },
@@ -99,10 +105,73 @@ const jsonLd = {
         price: "0",
         priceCurrency: "USD",
       },
+      isRelatedTo: {
+        "@id": `${siteUrl}/#software-aril`,
+      },
       description:
         "Blazingly fast, multi-core Tamil OCR engine written in Rust with Edge-AI character validation for classical manuscripts.",
       softwareRequirements: "Rust, Ollama",
       url: "https://github.com/digital-tamil/tamil-simple-ocr",
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${siteUrl}/#software-aril`,
+      name: "aril",
+      alternateName: ["அரில்", "aril-core", "aril-cli", "@digital-tamil/aril", "@digital-tamil/aril-wasm"],
+      headline: "High-performance Tamil legacy font encoding to Unicode converter in Rust & WebAssembly",
+      description:
+        "Deterministic, zero-allocation single-pass Aho-Corasick engine for converting 29+ legacy Tamil 8-bit font encodings (Bamini, ShreeLipi, Softview, TSCII, Vanavil) to Unicode with native PDF text extraction.",
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Cross-platform (Linux, Windows, macOS, WebAssembly)",
+      softwareVersion: "0.1.1",
+      license: "https://opensource.org/licenses/MIT",
+      url: `${siteUrl}/tools/aril`,
+      codeRepository: "https://github.com/digital-tamil/aril",
+      programmingLanguage: ["Rust", "WebAssembly", "TypeScript"],
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      author: {
+        "@id": "https://sanjaiyan-dev.github.io/#person",
+      },
+      publisher: {
+        "@id": `${siteUrl}/#organization`,
+      },
+      isBasedOn: {
+        "@id": `${siteUrl}/#dataset-tamil-heritage-corpus`,
+      },
+      sameAs: [
+        "https://github.com/digital-tamil/aril",
+        "https://crates.io/crates/aril-core",
+        "https://crates.io/crates/aril-cli",
+        "https://www.npmjs.com/package/@digital-tamil/aril",
+        "https://www.npmjs.com/package/@digital-tamil/aril-wasm",
+        "https://deepwiki.com/digital-tamil/aril",
+      ],
+      featureList: [
+        "Single-pass O(N) Aho-Corasick LeftmostLongest state machine",
+        "Zero-allocation buffer pre-sizing (3x byte expansion)",
+        "Bamini to Unicode conversion",
+        "ShreeLipi to Unicode conversion",
+        "Vanavil to Unicode conversion",
+        "TSCII to Unicode conversion",
+        "Direct PDF byte-stream text extraction without OCR",
+        "Multi-threaded Rayon directory batch conversion",
+        "100% offline client-side WebAssembly execution",
+      ],
+      keywords: [
+        "Bamini to Unicode",
+        "ShreeLipi to Unicode",
+        "Tamil Font Converter",
+        "Tamil PDF to Text",
+        "Vanavil to Unicode",
+        "TSCII to Unicode",
+        "Aho-Corasick Indic Ligature",
+        "Rust WebAssembly Tamil",
+        "Tamil Heritage Digitization",
+      ],
     },
     {
       "@type": "WebSite",
@@ -145,7 +214,7 @@ const jsonLd = {
     <meta property="og:image" content={image} />
     <meta
       property="og:image:alt"
-      content="Digital Tamizh - Tamil AI and Classical Digitization Engine"
+      content={imageAlt}
     />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ta_LK" />
@@ -158,7 +227,7 @@ const jsonLd = {
     <meta name="twitter:image" content={image} />
     <meta
       name="twitter:image:alt"
-      content="Digital Tamizh - Tamil AI and Classical Digitization Engine"
+      content={imageAlt}
     />
 
     <link rel="icon" href="/favicon.ico" sizes="any" />

@@ -27,6 +27,11 @@ const NAV_LINKS: NavLink[] = [
 		badge: "1.43k Rows",
 	},
 	{
+		name: "Aril Engine",
+		href: "/tools/aril",
+		badge: "Font",
+	},
+	{
 		name: "Simple OCR",
 		href: "/tamil-simple-ocr",
 		badge: "Rust",

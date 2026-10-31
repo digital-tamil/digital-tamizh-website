@@ -3,28 +3,17 @@ import Layout from "../../layouts/Layout.astro";
 import Aril from "../../components/pages/Aril";
 
 const title = "Aril (அரில்) — High-Speed Tamil Legacy Font to Unicode Engine";
-const description = "Ultra-fast zero-allocation Tamil font encoding converter (Bamini, ShreeLipi, Softview, TSCII, Vanavil) with native PDF extraction in Rust & WebAssembly.";
-const canonicalURL = new URL("/aril", Astro.site || "https://digital-tamizh.web.app");
-const ogImage = new URL("/Aril/Aril_OgBanner.jpg", Astro.site || "https://digital-tamizh.web.app");
+const description = "Free, instant Tamil font converter & legacy PDF text extractor. Convert Bamini, ShreeLipi, Vanavil, TSCII to Unicode with zero data upload. Rust & WASM engine.";
+
+const ogImage = new URL("/Aril/Aril_OgImage.png", Astro.site || "https://digital-tamizh.web.app");
 ---
 
 <Layout 
   title={title}
   description={description}
+  image={ogImage.toString()}
+  imageAlt="ARIL Tamil Unicode Engine: 3D isometric diorama depicting chaotic legacy 8-bit font glyphs transforming through a glowing quantum gateway into illuminated Tamil Unicode blocks spelling 'முருகன்' across a digital bridge connecting Sri Lanka Tamil Nadu"
 >
-  <Fragment slot="head">
-    <link rel="canonical" href={canonicalURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
-  </Fragment>
-
   <main class="min-h-screen bg-[#040407] text-neutral-100 selection:bg-amber-500/20 selection:text-amber-300">
     <Aril client:load />
   </main>

@@ -303,13 +303,13 @@ export default function Aril() {
 				className="fixed top-0 left-0 right-0 h-0.5 bg-linear-to-r from-amber-500 via-orange-500 to-amber-300 origin-left z-50 pointer-events-none"
 			/>
 			{/* Liquid background specular glowing orbs */}
-			<div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[850px] h-[500px] bg-gradient-to-tr from-amber-500/10 via-orange-500/15 to-transparent blur-[140px] rounded-full" />
-			<div className="pointer-events-none absolute top-[40%] -right-40 w-[600px] h-[600px] bg-gradient-to-br from-blue-600/10 via-indigo-500/10 to-transparent blur-[150px] rounded-full" />
-			<div className="pointer-events-none absolute top-[70%] -left-40 w-[700px] h-[600px] bg-gradient-to-tr from-purple-600/10 via-amber-500/5 to-transparent blur-[160px] rounded-full" />
+			<div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-212.5 h-125 bg-linear-to-tr from-amber-500/10 via-orange-500/15 to-transparent blur-[140px] rounded-full" />
+			<div className="pointer-events-none absolute top-[40%] -right-40 w-150 h-150 bg-linear-to-br from-blue-600/10 via-indigo-500/10 to-transparent blur-[150px] rounded-full" />
+			<div className="pointer-events-none absolute top-[70%] -left-40 w-175 h-150 bg-linear-to-tr from-purple-600/10 via-amber-500/5 to-transparent blur-[160px] rounded-full" />
 
 			{/* Subtle liquid grid texture */}
 			<div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))]" />
-			<div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+			<div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
 			<div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-32">
 				{/* HERO SECTION */}
@@ -367,7 +367,7 @@ export default function Aril() {
 								{activeTab === "pdf" && (
 									<motion.div
 										layoutId="playgroundTab"
-										className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-indigo-500/20 to-blue-500/30 border border-blue-500/40 rounded-xl -z-10"
+										className="absolute inset-0 bg-linear-to-r from-blue-500/30 via-indigo-500/20 to-blue-500/30 border border-blue-500/40 rounded-xl -z-10"
 										transition={{ type: "spring", stiffness: 400, damping: 30 }}
 									/>
 								)}
@@ -441,9 +441,9 @@ function HeroSection({ wasmReady }: { wasmReady: boolean }) {
 				transition={{ duration: 0.8 }}
 				className="mb-6 inline-flex flex-col items-center"
 			>
-				<span className="text-xs sm:text-sm font-serif tracking-widest text-amber-300/80 italic drop-shadow-[0_2px_10px_rgba(245,158,11,0.3)]">
+				<span className="text-md sm:text-lg font-serif tracking-widest text-amber-300/80 italic drop-shadow-[0_2px_10px_rgba(245,158,11,0.3)]">
 					“...அதங்கோட்டு ஆசாற்கு{" "}
-					<strong className="font-semibold text-amber-200 underline decoration-amber-500/50 underline-offset-4">
+					<strong className="font-semibold animate-pulse text-amber-200 underline decoration-amber-500/50 underline-offset-4">
 						அரில் தபத் தெரிந்து
 					</strong>{" "}
 					மயங்கா மரபின் எழுத்துமுறை காட்டி...”
@@ -461,7 +461,7 @@ function HeroSection({ wasmReady }: { wasmReady: boolean }) {
 				className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight"
 			>
 				Untangle Tamil Heritage. <br />
-				<span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-300 to-amber-500 drop-shadow-[0_4px_30px_rgba(245,158,11,0.3)]">
+				<span className="bg-clip-text text-transparent bg-linear-to-r from-amber-400 via-orange-300 to-amber-500 drop-shadow-[0_4px_30px_rgba(245,158,11,0.3)]">
 					At Memory-Bus Speeds.
 				</span>
 			</motion.h1>
@@ -486,7 +486,7 @@ function HeroSection({ wasmReady }: { wasmReady: boolean }) {
 				transition={{ duration: 0.8, delay: 0.3 }}
 				className="mt-8 flex flex-wrap items-center justify-center gap-3"
 			>
-				<div className="relative group p-px rounded-full bg-gradient-to-r from-amber-500/40 via-orange-500/20 to-purple-500/40 shadow-lg">
+				<div className="relative group p-px rounded-full bg-linear-to-r from-amber-500/40 via-orange-500/20 to-purple-500/40 shadow-lg">
 					<div className="flex items-center gap-3 px-4 py-2 rounded-full bg-[#0a0a10]/90 backdrop-blur-xl border border-white/10 text-xs font-mono">
 						<span className="text-neutral-400 line-through decoration-rose-500/80">
 							KUfd;
@@ -501,7 +501,7 @@ function HeroSection({ wasmReady }: { wasmReady: boolean }) {
 					</div>
 				</div>
 
-				<div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-xs text-neutral-400 font-mono backdrop-blur-md">
+				<div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/3 border border-white/10 text-xs text-neutral-400 font-mono backdrop-blur-md">
 					<span
 						className={`w-2 h-2 rounded-full ${wasmReady ? "bg-emerald-400 shadow-[0_0_8px_#34d399]" : "bg-amber-400 animate-ping"}`}
 					/>
@@ -518,7 +518,7 @@ function HeroSection({ wasmReady }: { wasmReady: boolean }) {
 			>
 				<a
 					href="#playground"
-					className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-neutral-950 font-bold text-sm tracking-wide shadow-[0_10px_30px_rgba(245,158,11,0.35)] hover:shadow-[0_15px_40px_rgba(245,158,11,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+					className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-linear-to-r from-amber-500 via-orange-500 to-amber-600 text-neutral-950 font-bold text-sm tracking-wide shadow-[0_10px_30px_rgba(245,158,11,0.35)] hover:shadow-[0_15px_40px_rgba(245,158,11,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
 				>
 					<Sparkles className="w-4 h-4 fill-neutral-950" />
 					<span>Launch Interactive Playground</span>
@@ -547,7 +547,9 @@ function HeroSection({ wasmReady }: { wasmReady: boolean }) {
 }
 
 function TextPlayground({ wasmModule }: { wasmModule: any }) {
-	const [inputText, setInputText] = useState("KUfd; mUs; Ntz;Lk;");
+	const [inputText, setInputText] = useState(
+		"mk;Gtp jdf;Fs; tsh; nre;jkpo; tOj;jp cid md;nghL Jjpf;f kdk; mUs;thNa 🦚",
+	);
 	const [direction, setDirection] = useState<"legacy2uni" | "uni2legacy">(
 		"legacy2uni",
 	);
@@ -643,7 +645,7 @@ function TextPlayground({ wasmModule }: { wasmModule: any }) {
 	return (
 		<div className="rounded-3xl bg-neutral-950/60 border border-white/10 backdrop-blur-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] overflow-hidden">
 			{/* Top Controller Bar */}
-			<div className="px-5 py-4 border-b border-white/10 flex flex-wrap items-center justify-between gap-4 bg-white/[0.02]">
+			<div className="px-5 py-4 border-b border-white/10 flex flex-wrap items-center justify-between gap-4 bg-white/2">
 				{/* Preset Pills */}
 				<div className="flex items-center gap-2 overflow-x-auto py-1 max-w-full">
 					<span className="text-xs font-mono uppercase tracking-widest text-neutral-400 whitespace-nowrap flex items-center gap-1.5">
@@ -726,7 +728,7 @@ function TextPlayground({ wasmModule }: { wasmModule: any }) {
 			{/* Dual Pane Liquid Glass Editor */}
 			<div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
 				{/* Left Pane: Input */}
-				<div className="p-6 flex flex-col justify-between min-h-[380px] bg-white/[0.01]">
+				<div className="p-6 flex flex-col justify-between min-h-95 bg-white/1">
 					<div>
 						<div className="flex items-center justify-between mb-3">
 							<span className="text-xs font-mono uppercase tracking-wider text-neutral-400 flex items-center gap-2">
@@ -772,7 +774,7 @@ function TextPlayground({ wasmModule }: { wasmModule: any }) {
 				</div>
 
 				{/* Right Pane: Output */}
-				<div className="p-6 flex flex-col justify-between min-h-[380px] bg-white/[0.02] relative group">
+				<div className="p-6 flex flex-col justify-between min-h-95 bg-white/2 relative group">
 					<div>
 						<div className="flex items-center justify-between mb-3">
 							<span className="text-xs font-mono uppercase tracking-wider text-amber-400 flex items-center gap-2">
@@ -820,7 +822,7 @@ function TextPlayground({ wasmModule }: { wasmModule: any }) {
 
 						{/* Display Output or Hex view */}
 						{showHex ? (
-							<div className="h-[220px] overflow-y-auto font-mono text-xs text-neutral-400 leading-relaxed bg-black/40 p-3 rounded-xl border border-white/5 space-y-1">
+							<div className="h-55 overflow-y-auto font-mono text-xs text-neutral-400 leading-relaxed bg-black/40 p-3 rounded-xl border border-white/5 space-y-1">
 								{Array.from(new TextEncoder().encode(outputText))
 									.map((b) => b.toString(16).padStart(2, "0").toUpperCase())
 									.reduce<string[][]>((acc, hex, idx) => {
@@ -843,7 +845,7 @@ function TextPlayground({ wasmModule }: { wasmModule: any }) {
 									))}
 							</div>
 						) : (
-							<div className="font-serif text-lg sm:text-2xl text-amber-100/90 leading-relaxed tracking-wide min-h-[200px] select-all whitespace-pre-wrap">
+							<div className="font-serif text-lg sm:text-2xl text-amber-100/90 leading-relaxed tracking-wide min-h-50 select-all whitespace-pre-wrap">
 								{outputText || (
 									<span className="text-neutral-600 font-sans text-sm">
 										Disentangled text will materialize here...
@@ -1014,7 +1016,7 @@ function PdfPlayground({ wasmModule }: { wasmModule: any }) {
 					</div>
 					<div className="w-full h-1.5 bg-neutral-900 rounded-full overflow-hidden">
 						<motion.div
-							className="h-full bg-gradient-to-r from-blue-500 to-indigo-500"
+							className="h-full bg-linear-to-r from-blue-500 to-indigo-500"
 							initial={{ width: 0 }}
 							animate={{ width: `${progress}%` }}
 						/>
@@ -1031,7 +1033,7 @@ function PdfPlayground({ wasmModule }: { wasmModule: any }) {
 				>
 					{/* Metadata Bar */}
 					<div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-						<div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+						<div className="p-4 rounded-xl bg-white/2 border border-white/5">
 							<span className="text-xs font-mono text-neutral-400">
 								Total Pages Parsed
 							</span>
@@ -1039,7 +1041,7 @@ function PdfPlayground({ wasmModule }: { wasmModule: any }) {
 								{pdfResult.totalPages}
 							</p>
 						</div>
-						<div className="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+						<div className="p-4 rounded-xl bg-white/2 border border-white/5">
 							<span className="text-xs font-mono text-neutral-400">
 								Detected Archival Fonts
 							</span>
@@ -1047,7 +1049,7 @@ function PdfPlayground({ wasmModule }: { wasmModule: any }) {
 								{pdfResult.detectedFonts?.join(", ") || "Bamini, TAB"}
 							</p>
 						</div>
-						<div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between">
+						<div className="p-4 rounded-xl bg-white/2 border border-white/5 flex items-center justify-between">
 							<div>
 								<span className="text-xs font-mono text-neutral-400">
 									Extracted Status
@@ -1068,7 +1070,7 @@ function PdfPlayground({ wasmModule }: { wasmModule: any }) {
 					</div>
 
 					{/* Text Preview Box */}
-					<div className="rounded-2xl bg-black/40 border border-white/5 p-5 font-serif text-base text-neutral-200 leading-relaxed max-h-[300px] overflow-y-auto whitespace-pre-wrap">
+					<div className="rounded-2xl bg-black/40 border border-white/5 p-5 font-serif text-base text-neutral-200 leading-relaxed max-h-75 overflow-y-auto whitespace-pre-wrap">
 						{pdfResult.combinedText}
 					</div>
 				</motion.div>
@@ -1176,7 +1178,7 @@ function AhoCorasickVisualizerSection() {
 							</div>
 
 							{/* Node 2: Aho Corasick Trie */}
-							<div className="p-5 rounded-2xl bg-gradient-to-br from-amber-500/20 via-neutral-900 to-orange-500/10 border border-amber-500/40 text-center font-mono shadow-[0_0_30px_rgba(245,158,11,0.2)]">
+							<div className="p-5 rounded-2xl bg-linear-to-br from-amber-500/20 via-neutral-900 to-orange-500/10 border border-amber-500/40 text-center font-mono shadow-[0_0_30px_rgba(245,158,11,0.2)]">
 								<span className="text-[10px] text-amber-400 block mb-1">
 									TRIE MATCHER
 								</span>
@@ -1207,7 +1209,7 @@ function AhoCorasickVisualizerSection() {
 						</div>
 
 						{/* Explanatory callout */}
-						<div className="w-full max-w-lg mt-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 text-xs text-neutral-300 font-mono flex items-start gap-3">
+						<div className="w-full max-w-lg mt-4 p-4 rounded-xl bg-white/2 border border-white/5 text-xs text-neutral-300 font-mono flex items-start gap-3">
 							<Info className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
 							<div>
 								<strong>Memory Allocation:</strong> Buffer pre-allocated at{" "}
@@ -1487,15 +1489,40 @@ function PhilosophySection() {
 				</div>
 
 				{/* Isometric Banner Showcase */}
-				<div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl group">
-					<img
-						src="/Aril/Aril_OgBanner.jpg"
-						alt="Aril Tamil Unicode Engine Isometric Visualizer"
-						className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
-					/>
-					<div className="absolute inset-0 bg-linear-to-t from-neutral-950 via-transparent to-transparent opacity-80" />
-					<div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-xs font-mono text-neutral-300">
-						<span>“அதங்கோட்டு ஆசாற்கு அரில் தபத் தெரிந்து...” — தொல்காப்பியம்</span>
+				<div className="relative group rounded-3xl p-1 bg-linear-to-b from-white/15 via-white/5 to-transparent shadow-[0_20px_50px_rgba(0,0,0,0.8)]">
+					<div className="pointer-events-none absolute -inset-2 rounded-3xl bg-linear-to-r from-amber-500/25 via-cyan-500/30 to-amber-500/25 blur-2xl opacity-40 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
+
+					<div className="relative rounded-[22px] overflow-hidden bg-[#06060c] border border-white/15">
+						<div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-cyan-400/60 to-transparent z-20" />
+
+						<img
+							src="/Aril/Aril_OgBanner.jpg"
+							alt="ARIL Tamil Unicode Engine: 3D isometric bridge transforming chaotic 8-bit glyphs into illuminated Tamil Unicode blocks spelling முருகன்"
+							width={850}
+							height={850}
+							className="w-full h-auto object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+							loading="lazy"
+							decoding="async"
+						/>
+
+						<div className="pointer-events-none absolute inset-0 bg-linear-to-t from-neutral-950 via-neutral-950/25 to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-500 z-10" />
+
+						<div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-neutral-950/80 backdrop-blur-xl border border-white/10 flex items-center justify-between gap-3 z-20 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+							<div className="flex items-center gap-2.5">
+								<span className="relative flex h-2.5 w-2.5">
+									<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+									<span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400 shadow-[0_0_10px_#22d3ee]" />
+								</span>
+								<span className="text-xs font-mono text-neutral-200">
+									State Machine Gate:{" "}
+									<code className="text-cyan-300">KUfd;</code> ➔{" "}
+									<strong className="text-amber-300 font-bold">முருகன்</strong>
+								</span>
+							</div>
+							<span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 hidden sm:inline">
+								O(N) Disentanglement
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>
