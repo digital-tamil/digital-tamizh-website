@@ -2,14 +2,14 @@ import {
 	useState,
 	useEffect,
 	useRef,
-	useTransition,
-	useId,
 	useDeferredValue,
 	startTransition,
 } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "motion/react";
 import {
 	Zap,
+	Monitor,
+	Package,
 	Sparkles,
 	ArrowRightLeft,
 	Copy,
@@ -422,38 +422,71 @@ export default function Aril() {
 	);
 }
 
-function HeroSection({ wasmReady }: { wasmReady: boolean }) {
+import {} from "lucide-react";
+
+type InstallType = "curl" | "npm" | "cargo" | "powershell";
+
+const INSTALL_OPTIONS: Record<
+	InstallType,
+	{ label: string; cmd: string; icon: any }
+> = {
+	curl: {
+		label: "curl (macOS / Linux)",
+		cmd: "curl -LsSf https://github.com/digital-tamil/aril/releases/latest/download/aril-cli-installer.sh | sh",
+		icon: Terminal,
+	},
+	npm: {
+		label: "npx (Instant / No Install)",
+		cmd: "npx @digital-tamil/aril --help",
+		icon: Package,
+	},
+	cargo: {
+		label: "cargo (Precompiled Binary)",
+		cmd: "cargo binstall aril-cli",
+		icon: Terminal,
+	},
+	powershell: {
+		label: "powershell (Windows)",
+		cmd: "irm https://github.com/digital-tamil/aril/releases/latest/download/aril-cli-installer.ps1 | iex",
+		icon: Monitor,
+	},
+} as const;
+
+export function HeroSection({ wasmReady }: { wasmReady: boolean }) {
+	const [selectedInstaller, setSelectedInstaller] =
+		useState<InstallType>("curl");
 	const [copiedCmd, setCopiedCmd] = useState(false);
-	const cliCommand = "cargo install aril-cli";
+
+	const activeCmd = INSTALL_OPTIONS[selectedInstaller].cmd;
 
 	const handleCopy = () => {
-		navigator.clipboard.writeText(cliCommand);
+		navigator.clipboard.writeText(activeCmd);
 		setCopiedCmd(true);
 		setTimeout(() => setCopiedCmd(false), 2000);
 	};
 
 	return (
 		<div className="relative text-center max-w-4xl mx-auto flex flex-col items-center">
-			{/* Classical Epigraph with liquid gold shimmer */}
+			{/* 1. Classical Epigraph with Refined Liquid Gold Typography */}
 			<motion.div
-				initial={{ opacity: 0, y: 20 }}
+				initial={{ opacity: 0, y: 15 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8 }}
-				className="mb-6 inline-flex flex-col items-center"
+				className="mb-8 inline-flex flex-col items-center"
 			>
-				<span className="text-md sm:text-lg font-serif tracking-widest text-amber-300/80 italic drop-shadow-[0_2px_10px_rgba(245,158,11,0.3)]">
+				<span className="text-md sm:text-lg font-serif tracking-widest text-amber-200/90 italic drop-shadow-[0_2px_12px_rgba(245,158,11,0.25)]">
 					“...அதங்கோட்டு ஆசாற்கு{" "}
-					<strong className="font-semibold animate-pulse text-amber-200 underline decoration-amber-500/50 underline-offset-4">
+					<strong className="font-semibold text-transparent animate-pulse bg-clip-text bg-linear-to-r from-amber-400 via-yellow-100 to-amber-300 underline decoration-amber-400/50 underline-offset-4">
 						அரில் தபத் தெரிந்து
 					</strong>{" "}
 					மயங்கா மரபின் எழுத்துமுறை காட்டி...”
 				</span>
-				<span className="text-[11px] font-mono tracking-wider text-neutral-400 mt-1 uppercase">
+				<span className="text-[11px] font-mono tracking-widest text-neutral-400 mt-2 uppercase">
 					— தொல்காப்பியம் (சிறப்புப்பாயிரம்)
 				</span>
 			</motion.div>
 
-			{/* Flagship Title with Glyphs */}
+			{/* 2. Flagship Title */}
 			<motion.h1
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -466,6 +499,7 @@ function HeroSection({ wasmReady }: { wasmReady: boolean }) {
 				</span>
 			</motion.h1>
 
+			{/* 3. Subtitle with Contrast Corrected Badges */}
 			<motion.p
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -474,19 +508,21 @@ function HeroSection({ wasmReady }: { wasmReady: boolean }) {
 			>
 				High-performance deterministic Tamil legacy 8-bit font encoding to
 				Unicode engine written in{" "}
-				<strong className="text-amber-600 font-semibold">Rust</strong>.
-				Zero-allocation single-pass state-machines with native PDF extraction
+				<strong className="text-amber-600 font-semibold drop-shadow-[0_0_8px_rgba(245,158,11,0.3)]">
+					Rust
+				</strong>
+				. Zero-allocation single-pass state-machines with native PDF extraction
 				and client-side WebAssembly.
 			</motion.p>
 
-			{/* Shimmering Untangling Micro-Badge */}
+			{/* 4. Shimmering Untangling Micro-Badge */}
 			<motion.div
 				initial={{ opacity: 0, scale: 0.95 }}
 				animate={{ opacity: 1, scale: 1 }}
 				transition={{ duration: 0.8, delay: 0.3 }}
 				className="mt-8 flex flex-wrap items-center justify-center gap-3"
 			>
-				<div className="relative group p-px rounded-full bg-linear-to-r from-amber-500/40 via-orange-500/20 to-purple-500/40 shadow-lg">
+				<div className="relative group p-px rounded-full bg-linear-to-r from-amber-500/40 via-cyan-500/30 to-amber-500/40 shadow-lg">
 					<div className="flex items-center gap-3 px-4 py-2 rounded-full bg-[#0a0a10]/90 backdrop-blur-xl border border-white/10 text-xs font-mono">
 						<span className="text-neutral-400 line-through decoration-rose-500/80">
 							KUfd;
@@ -501,51 +537,100 @@ function HeroSection({ wasmReady }: { wasmReady: boolean }) {
 					</div>
 				</div>
 
-				<div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/3 border border-white/10 text-xs text-neutral-400 font-mono backdrop-blur-md">
+				<div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/3 border border-white/10 text-xs text-neutral-400 font-mono backdrop-blur-md">
 					<span
-						className={`w-2 h-2 rounded-full ${wasmReady ? "bg-emerald-400 shadow-[0_0_8px_#34d399]" : "bg-amber-400 animate-ping"}`}
+						className={`w-2 h-2 rounded-full ${
+							wasmReady
+								? "bg-emerald-400 shadow-[0_0_8px_#34d399]"
+								: "bg-amber-400 animate-ping"
+						}`}
 					/>
-					<span>{wasmReady ? "WASM 0.1.1 Ready" : "Loading Engine..."}</span>
+					<span>{wasmReady ? "WASM 0.1.1 Active" : "Loading Engine..."}</span>
 				</div>
 			</motion.div>
 
-			{/* CTA Buttons & Interactive Command Pill */}
 			<motion.div
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8, delay: 0.4 }}
-				className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+				className="mt-8 flex flex-col items-center gap-4 w-full"
 			>
 				<a
 					href="#playground"
-					className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-linear-to-r from-amber-500 via-orange-500 to-amber-600 text-neutral-950 font-bold text-sm tracking-wide shadow-[0_10px_30px_rgba(245,158,11,0.35)] hover:shadow-[0_15px_40px_rgba(245,158,11,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+					className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-2xl bg-linear-to-r from-amber-500 via-orange-500 to-amber-600 text-neutral-950 font-bold text-sm tracking-wide shadow-[0_10px_30px_rgba(245,158,11,0.35)] hover:shadow-[0_15px_40px_rgba(245,158,11,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
 				>
 					<Sparkles className="w-4 h-4 fill-neutral-950" />
 					<span>Launch Interactive Playground</span>
 				</a>
 
-				{/* Copy command box */}
-				<button
-					type="button"
-					onClick={handleCopy}
-					aria-label="Copy CLI install command"
-					className="w-full sm:w-auto inline-flex items-center justify-between gap-3 px-5 py-3.5 rounded-2xl bg-neutral-900/80 hover:bg-neutral-800/80 border border-white/10 hover:border-amber-500/30 text-neutral-300 hover:text-white font-mono text-xs tracking-tight transition-all duration-200 backdrop-blur-xl group shadow-lg"
-				>
-					<div className="flex items-center gap-2">
-						<Terminal className="w-4 h-4 text-amber-400 group-hover:rotate-6 transition-transform" />
-						<span>{cliCommand}</span>
+				<div className="mt-4 w-full max-w-2xl rounded-2xl bg-[#08080f]/90 border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.7)] backdrop-blur-2xl p-2 flex flex-col gap-2">
+					{/* Platform Tab Selectors */}
+					<div className="flex items-center justify-center sm:justify-start gap-1 px-1 overflow-x-auto">
+						{(
+							[
+								{ id: "curl", label: "curl", title: "macOS / Linux" },
+								{ id: "npm", label: "npx / npm", title: "Node.js" },
+								{ id: "cargo", label: "cargo", title: "Rust" },
+								{ id: "powershell", label: "powershell", title: "Windows" },
+							] as const
+						).map((tab) => (
+							<button
+								key={tab.id}
+								type="button"
+								onClick={() => setSelectedInstaller(tab.id)}
+								className={`relative px-3 py-1 rounded-lg text-xs font-mono transition-all duration-200 flex items-center gap-1.5 ${
+									selectedInstaller === tab.id
+										? "text-amber-300 bg-amber-500/10 border border-amber-500/30"
+										: "text-neutral-400 hover:text-neutral-200 hover:bg-white/4"
+								}`}
+							>
+								<span>{tab.label}</span>
+								<span className="text-[10px] text-neutral-500 hidden sm:inline">
+									({tab.title})
+								</span>
+							</button>
+						))}
 					</div>
-					{copiedCmd ? (
-						<Check className="w-3.5 h-3.5 text-emerald-400" />
-					) : (
-						<Copy className="w-3.5 h-3.5 text-neutral-400 group-hover:text-amber-400" />
-					)}
-				</button>
+
+					{/* Interactive Command Display with Copy Button */}
+					<button
+						type="button"
+						onClick={handleCopy}
+						className="group relative flex items-center justify-between gap-3 px-4 py-2.5 rounded-xl bg-black/60 hover:bg-black/80 border border-white/5 hover:border-amber-500/30 transition-all cursor-pointer"
+					>
+						<div className="flex items-center gap-2.5 overflow-hidden text-left">
+							<Terminal className="w-4 h-4 text-amber-400 shrink-0 group-hover:rotate-6 transition-transform" />
+							<AnimatePresence mode="wait">
+								<motion.code
+									key={selectedInstaller}
+									initial={{ opacity: 0, y: -4 }}
+									animate={{ opacity: 1, y: 0 }}
+									exit={{ opacity: 0, y: 4 }}
+									transition={{ duration: 0.15 }}
+									className="font-mono text-xs text-neutral-200 truncate select-all"
+								>
+									{activeCmd}
+								</motion.code>
+							</AnimatePresence>
+						</div>
+
+						<button
+							type="button"
+							aria-label="Copy terminal install command"
+							className="p-1.5 rounded-lg bg-neutral-900 border border-white/10 text-neutral-400 group-hover:text-amber-300 transition-colors shrink-0"
+						>
+							{copiedCmd ? (
+								<Check className="w-3.5 h-3.5 text-emerald-400" />
+							) : (
+								<Copy className="w-3.5 h-3.5" />
+							)}
+						</button>
+					</button>
+				</div>
 			</motion.div>
 		</div>
 	);
 }
-
 function TextPlayground({ wasmModule }: { wasmModule: any }) {
 	const [inputText, setInputText] = useState(
 		"mk;Gtp jdf;Fs; tsh; nre;jkpo; tOj;jp cid md;nghL Jjpf;f kdk; mUs;thNa 🦚",
