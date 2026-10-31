@@ -36,6 +36,9 @@ Dev dependencies used in this project:
 ├── package-lock.json
 ├── package.json
 ├── public/
+│   ├── Aril/
+│   │   ├── Aril_OgBanner.jpg
+│   │   └── Aril_OgImage.png
 │   ├── Digital_Tamizh_OgImg.jpg
 │   ├── Digital_Tamizh_OgImg.png
 │   ├── favicon.ico
